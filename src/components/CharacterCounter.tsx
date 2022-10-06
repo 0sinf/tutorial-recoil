@@ -1,5 +1,6 @@
 import { ChangeEvent } from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { charCountState } from '../stores/charCountState';
 import { textState } from '../stores/textState';
 
 function TextInput() {
@@ -18,10 +19,17 @@ function TextInput() {
   );
 }
 
+function CharacterCount() {
+  const count = useRecoilValue(charCountState);
+
+  return <>Character Count: {count}</>;
+}
+
 export default function CharacterCounter() {
   return (
     <div>
       <TextInput />
+      <CharacterCount />
     </div>
   );
 }
