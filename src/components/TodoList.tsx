@@ -5,14 +5,16 @@ import TodoItem from './TodoItem';
 import TodoItemCreator from './TodoItemCreator';
 
 export default function TodoList(): React.ReactElement {
+  // const todoList = useRecoilValue(todoListState);
+
   const todoList = useRecoilValue(todoListState);
 
   return (
     <>
       <TodoItemCreator />
-      {todoList.map((todoItem) => {
-        <TodoItem key={todoItem.id} item={todoItem} />;
-      })}
+      {todoList.map((todoItem) => (
+        <TodoItem key={todoItem.id} item={todoItem} />
+      ))}
     </>
   );
 }
